@@ -15,7 +15,10 @@ null_ls.setup({
 		formatting.stylua,
 		diagnostics.eslint_d,
 		formatting.autopep8,
-		diagnostics.flake8,
+		diagnostics.black.with({ filetypes = { "python" } }),
+		formatting.clang_format,
+		diagnostics.semgrep.with({ filetypes = { "java" } }),
+		diagnostics.vale.with({ filetypes = { "tex" } }),
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)

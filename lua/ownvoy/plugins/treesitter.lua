@@ -32,6 +32,7 @@ treesitter.setup({
 		"dockerfile",
 		"python",
 		"c",
+		"java",
 	},
 	-- auto install above language parsers
 	auto_install = true,

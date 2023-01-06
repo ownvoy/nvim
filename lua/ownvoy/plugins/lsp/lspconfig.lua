@@ -16,14 +16,8 @@ if not typescript_setup then
 	return
 end
 
-local py_jedi_setup, jedi = pcall(require, "jedi_language_server")
-if not py_jedi_setup then
-	return
-end
+local keymap = vim.keymap
 
-local keymap = vim.keymap -- for conciseness
-
--- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
 	local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -75,12 +69,8 @@ typescript.setup({
 	},
 })
 
-jedi.setup({
-	server = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	},
-})
+-- configure jdtls server
+
 -- configure css server
 lspconfig["cssls"].setup({
 	capabilities = capabilities,
@@ -99,15 +89,18 @@ lspconfig["emmet_ls"].setup({
 	on_attach = on_attach,
 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
-
--- configure python jedi_language_server
-lspconfig["jedi_language_server"].setup({
+-- configure latex
+lspconfig["texlab"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	filetypes = { "python" },
 })
+--configure python
 
---  configure lua server (with special settings)
+lspconfig["pyright"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+-- configure lua server (with special settings)
 lspconfig["sumneko_lua"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,

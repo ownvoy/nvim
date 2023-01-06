@@ -31,7 +31,7 @@ mason_lspconfig.setup({
 		"emmet_ls",
 		"jsonls",
 		"jdtls",
-		"ltex",
+		"texlab",
 		"marksman",
 		"sqlls",
 		"jedi_language_server",
@@ -47,6 +47,9 @@ mason_null_ls.setup({
 		"eslint_d", -- ts/js linter
 		"flake8",
 		"autopep8",
+		"semgrep",
+		"cmakelang",
+		"vale",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,

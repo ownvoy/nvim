@@ -53,7 +53,10 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 
 	-- autocompletion
-	use("hrsh7th/nvim-cmp") -- completion plugin
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = { "quangnguyen30192/cmp-nvim-ultisnips", { "nvim-treesitter/nvim-treesitter" } },
+	})
 	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
 
@@ -72,11 +75,18 @@ return packer.startup(function(use)
 	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
-
+	-- configuring java
+	use("mfussenegger/nvim-jdtls")
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
 	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
+	-- tex configuration
+	use("lervag/vimtex")
+	use("SirVer/ultisnips")
+	use("tpope/vim-dispatch")
+
+	use("quangnguyen30192/cmp-nvim-ultisnips")
 	-- treesitter configuration
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -85,7 +95,6 @@ return packer.startup(function(use)
 			ts_update()
 		end,
 	})
-
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
@@ -93,6 +102,8 @@ return packer.startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
+	-- toggle term
+	use({ "akinsho/toggleterm.nvim", tag = "*" })
 	if packer_bootstrap then
 		require("packer").sync()
 	end

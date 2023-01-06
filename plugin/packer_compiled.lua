@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-ultisnips"] = {
+    loaded = true,
+    path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips",
+    url = "https://github.com/quangnguyen30192/cmp-nvim-ultisnips"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -164,6 +169,11 @@ _G.packer_plugins = {
     path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-jdtls"] = {
+    loaded = true,
+    path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    url = "https://github.com/mfussenegger/nvim-jdtls"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -211,10 +221,25 @@ _G.packer_plugins = {
     path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   ["typescript.nvim"] = {
     loaded = true,
     path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/typescript.nvim",
     url = "https://github.com/jose-elias-alvarez/typescript.nvim"
+  },
+  ultisnips = {
+    loaded = true,
+    path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/ultisnips",
+    url = "https://github.com/SirVer/ultisnips"
+  },
+  ["vim-dispatch"] = {
+    loaded = true,
+    path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/vim-dispatch",
+    url = "https://github.com/tpope/vim-dispatch"
   },
   ["vim-maximizer"] = {
     loaded = true,
@@ -235,6 +260,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
+  vimtex = {
+    loaded = true,
+    path = "/home/ownvoy/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 
