@@ -8,9 +8,8 @@ virtual_text = true
 
 -- vim.o.guifont = "CaskaydiaCove Nerd Font Mono:h14"
 vim.o.guifont = "Cascadia Code NF:h14"
-vim.g.neovide_opacity = 1.0
-vim.g.neovide_background_color = "#1E1E2EE6"
--- vim.g.neovide_background_color = "#0f1117" .. string.format("%x", math.floor(255 * 0.8))
+vim.g.neovide_opacity = 0.82
+vim.g.neovide_normal_opacity = 0.82
 vim.g.neovide_padding_top = 60
 vim.g.neovide_padding_bottom = 60
 vim.g.neovide_padding_right = 40
