@@ -1,4 +1,13 @@
 local M = {}
+local remote_server_launch_desc = "Launching Neovim server on the remote machine"
+
+local function prepend_path(prefix)
+  local path = vim.env.PATH or ""
+  if path:find(prefix, 1, true) then
+    return
+  end
+  vim.env.PATH = prefix .. ":" .. path
+end
 
 local function get_known_hosts()
   return vim.tbl_keys(require("remote-nvim").session_provider:get_config_provider():get_workspace_config())
@@ -43,7 +52,30 @@ function M.start_from_env()
   end
 end
 
+function M.setup_env()
+  if vim.env.REMOTE_NVIM_HOST ~= "H100_proxy" then
+    return
+  end
+
+  prepend_path("/home/linuxbrew/.linuxbrew/bin")
+  prepend_path("/home/linuxbrew/.linuxbrew/sbin")
+end
+
 function M.setup()
+  M.setup_env()
+
+  local provider = require("remote-nvim.providers.provider")
+  if not provider._ownvoy_remote_neovide_patched then
+    local run_command = provider.run_command
+    provider.run_command = function(self, command, desc, extra_opts, exit_cb, on_local_executor)
+      if desc == remote_server_launch_desc then
+        command = ("REMOTE_NVIM_HOST=%s %s"):format(vim.fn.shellescape(self.unique_host_id), command)
+      end
+      return run_command(self, command, desc, extra_opts, exit_cb, on_local_executor)
+    end
+    provider._ownvoy_remote_neovide_patched = true
+  end
+
   vim.api.nvim_create_user_command("RemoteNeovideStart", function(opts)
     M.start(opts.args)
   end, {
